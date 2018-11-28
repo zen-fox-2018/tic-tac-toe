@@ -26,7 +26,57 @@ function tictactoe() {
     }
     array.push(innerArray)
   }
-  return console.log(array);
+  return array;
 }
 
-tictactoe()
+var array = tictactoe()
+
+function winnerCheck(array) {
+  let winner = ""
+  //horizontal
+  for (let i = 0; i < array.length; i++) {
+    let winnerTempHorizontal = array[i][0]
+    for (let j = 1; j < array[i].length; j++) {
+      if (array[i][j] === winnerTempHorizontal) {
+        winner = winnerTempHorizontal
+      }
+      else {
+        winner = ""
+        break
+      }
+    }
+    if (winner != "") {
+      return winner
+    }
+  }
+
+  //vertical
+  for (let i = 0; i < array.length; i++) {
+    let winnerTempVertical = array[0][i]
+    for (let j = 0; j < array[i].length; j++) {
+      if (array[j][i] === winnerTempVertical) {
+        winner = winnerTempVertical
+      }
+      else {
+        winner = ""
+        break
+      }
+    }
+    if (winner != "") {
+      return winner
+    }
+  }
+
+  //Diagonal gradien negatif
+  let winnerTempDiagonal = array[1][1]
+  if (array[0][0] === winnerTempDiagonal && array[2][2] === winnerTempDiagonal) {
+    return winnerTempDiagonal
+  }
+  else if (array[0][2] === winnerTempDiagonal && array[2][0] === winnerTempDiagonal) {
+    return winnerTempDiagonal
+  }
+  return "tidak ada"
+}
+
+console.log(array);
+console.log(`yang menang adalah ${winnerCheck(array)}`);
