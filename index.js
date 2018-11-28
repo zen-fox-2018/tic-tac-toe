@@ -13,15 +13,15 @@ function tictactoe (row,col) {
                 countO++
             }
             if(countX >=5){
-                outputDalam.push('o')
+                outputDalam.push(' o ')
                 countX--
                 countO++
             }else if(countO >=5){
-                outputDalam.push('x')
+                outputDalam.push(' x ')
                 countO--
                 countX++
             }else{
-                outputDalam.push(random)
+                outputDalam.push(' '+random+' ')
             }
         }
         //console.log(countX,countO)
@@ -42,7 +42,7 @@ function checkWin(board){
         for(let j=0; j < board[i].length; j++){
             if(i == 0){
                 if(board[i][j] == board[i+1][j] && board[i][j] == board[i+2][j]){
-                    if(board[i][j] == 'x'){
+                    if(board[i][j] == ' x '){
                         Xscore++
                     } else{
                         Oscore++
@@ -51,7 +51,7 @@ function checkWin(board){
             }
             if(j == 0){
                 if(board[i][j] == board[i][j+1] && board[i][j] == board[i][j+2]){
-                    if(board[i][j] == 'x'){
+                    if(board[i][j] == ' x '){
                         Xscore++
                     } else{
                         Oscore++
@@ -60,7 +60,7 @@ function checkWin(board){
             }
             if(i == 1 && j == 1){
                 if((board[i][j] == board[i+1][j+1] && board[i][j] == board[i-1][j-1]) || (board[i][j] == board[i+1][j-1] && board[i][j] == board[i-1][j+1]) ){
-                    if(board[i][j] == 'x'){
+                    if(board[i][j] == ' x '){
                         Xscore++
                     } else {
                         Oscore++
