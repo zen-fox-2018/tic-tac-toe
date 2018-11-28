@@ -42,11 +42,14 @@ function getScore (maps) {
     for (let j = 0; j < maps.length; j++) {
       vertical.push(maps[j][i]);
       let diagonal = []
-      if (i === 0 && j === 0 ){
-        diagonal = [maps[i][j], maps[i+1][j+1], maps[i+2][j+2]]
-      } else if (i === 0 && j === maps.length - 1) {
-        diagonal = [maps[i][j], maps[i+1][j-1], maps[i+2][j-2]]
+      for (var k = 0; k < maps.length; k++) {
+        if (i === 0 && j === 0 ){
+          diagonal.push(maps[i+k][j+k]);
+        } else if (i === 0 && j === maps.length - 1) {
+          diagonal.push(maps[i+k][j-k]);
+        }
       }
+
       if(diagonal.length){
         if(checkWin(diagonal)){
           objScore[diagonal[0]]++;
