@@ -24,5 +24,35 @@ function generateTicTacToe() {
     }
     return board
 }
+function TicTacToe() {
+    let board = generateTicTacToe()
+    let menang = []
+    console.log(board.join("\n"))
+    board.forEach((arr,idx) => {
+        arr.forEach((xo ,index) => {
+            if (arr[index+1] === xo && arr[index +2] === xo) {
+                menang.push(xo)
+            } 
+            if (idx+2 < 3) {
+                if (board[idx+1][index] === xo && board[idx+2][index] === xo) {
+                    menang.push(xo)
+                }
+            }    
+        })
+    })
+    if (board[0][0] === board[1][1] && board[2][2] === board[1][1])  {
+        menang.push(board[1][1])
+    } else if (board[0][2] === board[1][1] && board[2][0] === board[1][1]) {
+        menang.push(board[1][1])
+    }
+    console.log(menang)
+    if ( menang.length === 0) {
+        return `tidak ada yang menang`
+    } else {
+        return `============ ${menang[0]} menang`
+    }
+}
 
-console.log(generateTicTacToe())
+console.log(TicTacToe())
+
+
