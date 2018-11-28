@@ -24,7 +24,6 @@ function ticTacToe () {
     }
     myBoard.push(newColumn);
   }
-  console.log(counterX, counterO);
   return myBoard;
 }
 console.log(ticTacToe());
